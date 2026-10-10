@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mixmly.web.app/sitemap.xml
+Host: mixmly.web.app

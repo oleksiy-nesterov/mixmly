@@ -1,0 +1,10 @@
+body > div:has(.dialog-overlay-blur) {
+  backdrop-filter: blur(16px);
+}
+
+.dialog-no-padding {
+  padding: 0;
+  grid-template-areas: 'content';
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+}

@@ -1,0 +1,35 @@
+@layer theme, utilities;
+
+/* Do not use @import 'tailwindcss'; because Tailwind preflight breaks React Spectrum S2 css rules. */
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  @apply h-[100svh] min-h-[100svh];
+}
+
+body {
+  @apply m-0 flex h-[100svh] min-h-[100svh] flex-col p-0;
+}
+
+#app {
+  @apply flex flex-1;
+  padding-top: env(safe-area-inset-top);
+}
+
+.scroll-fade-mask {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    currentColor 0,
+    currentColor calc(100% - 32px),
+    transparent
+  );
+}

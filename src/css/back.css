@@ -1,0 +1,93 @@
+.back {
+  --color0: #ffffff;
+  --color1: #ff2a5f50;
+  --color2: #ff950050;
+  --color3: #007aff50;
+  --blur: 0.7;
+
+  --cx: 50%;
+  --cy: 50%;
+
+  --rx: 40%;
+  --ry: 70%;
+
+  --x0: calc(var(--cx) + var(--rx) * cos(var(--a0)));
+  --y0: calc(var(--cy) + var(--ry) * sin(var(--a0)));
+  --x1: calc(var(--cx) - var(--rx) * cos(var(--a0)));
+  --y1: calc(var(--cy) - var(--ry) * sin(var(--a0)));
+
+  background:
+    radial-gradient(
+      circle at var(--x0) var(--y0),
+      var(--color1) 0%,
+      color-mix(in srgb, var(--color1) 85%, transparent) calc(12% * var(--blur)),
+      color-mix(in srgb, var(--color1) 60%, transparent) calc(24% * var(--blur)),
+      color-mix(in srgb, var(--color1) 30%, transparent) calc(42% * var(--blur)),
+      transparent calc(65% * var(--blur))
+    ),
+    radial-gradient(
+      circle at calc(100% * var(--v0)) 50%,
+      var(--color2) 0%,
+      color-mix(in srgb, var(--color2) 80%, transparent) calc(10% * var(--blur)),
+      color-mix(in srgb, var(--color2) 50%, transparent) calc(25% * var(--blur)),
+      color-mix(in srgb, var(--color2) 25%, transparent) calc(40% * var(--blur)),
+      transparent calc(60% * var(--blur))
+    ),
+    radial-gradient(
+      circle at var(--x1) var(--y1),
+      var(--color3) 0%,
+      color-mix(in srgb, var(--color3) 85%, transparent) calc(12% * var(--blur)),
+      color-mix(in srgb, var(--color3) 60%, transparent) calc(24% * var(--blur)),
+      color-mix(in srgb, var(--color3) 30%, transparent) calc(42% * var(--blur)),
+      transparent calc(65% * var(--blur))
+    ),
+    var(--color0);
+
+  background-repeat: no-repeat;
+  animation: interpolation 15s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.dark .back {
+  --color0: #000000;
+  --color1: #bf5af230;
+  --color2: #ff375f15;
+  --color3: #0a84ff30;
+  --blur: 1.2;
+}
+
+/* interpolation */
+@property --v0 {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+@property --a0 {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@keyframes interpolation {
+  0% {
+    --v0: 1;
+    --a0: 0deg;
+  }
+  50% {
+    --v0: 0;
+    --a0: 90deg;
+  }
+  100% {
+    --v0: 1;
+    --a0: 360deg;
+  }
+}
+
+@keyframes orbit {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
