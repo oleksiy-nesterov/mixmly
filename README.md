@@ -8,7 +8,11 @@
 moving tokens. The game is designed to make mental math feel active, playful,
 and visual.
 
-Website: [https://mixmly.com/](https://mixmly.com/)
+Website: [https://mixmly.com](https://mixmly.com/)
+
+<p align="center">
+  <img src="artwork/demo.gif" alt="Mixmly gameplay demo" />
+</p>
 
 In Mixmly, numbers and math symbols appear as physical objects on the screen.
 The player selects and arranges them to make a correct equation. When the
